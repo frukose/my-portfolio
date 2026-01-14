@@ -218,11 +218,11 @@ const App: React.FC = () => {
       {isLoadingProjects ? (
         <div className="grid md:grid-cols-3 gap-10">
           {[1,2,3,4,5,6].map(i => (
-            <div key={i} className="bg-white border border-gray-100 h-[500px] rounded-[3rem] p-8 flex flex-col justify-between">
-              <div className="w-full h-48 bg-gray-50 rounded-2xl animate-pulse"></div>
+            <div key={i} className="bg-white border border-gray-100 h-[500px] rounded-[3rem] p-8 flex flex-col justify-between animate-pulse">
+              <div className="w-full h-48 bg-gray-50 rounded-2xl"></div>
               <div className="space-y-4">
-                <div className="h-8 bg-gray-50 w-3/4 rounded animate-pulse"></div>
-                <div className="h-4 bg-gray-50 w-full rounded animate-pulse"></div>
+                <div className="h-8 bg-gray-50 w-3/4 rounded"></div>
+                <div className="h-4 bg-gray-50 w-full rounded"></div>
               </div>
             </div>
           ))}

@@ -3,11 +3,13 @@ import { GoogleGenAI } from "@google/genai";
 import { MY_PORTFOLIO_DATA } from "../constants";
 import { Project } from "../types";
 
+// Static integrated key for zero-config Vercel deployment
 const INTEGRATED_KEY = "AIzaSyDFis5Sz_Fe61-J7lUCuzDfOYO4oNyxHLM";
 
 export class GeminiService {
   private getApiKey(): string {
-    return process.env.API_KEY || localStorage.getItem('GEMINI_API_KEY') || INTEGRATED_KEY;
+    // Priority: Env Variable > Hardcoded Integrated Key
+    return process.env.API_KEY || INTEGRATED_KEY;
   }
 
   private getSystemInstruction(dynamicProjects?: Project[]) {
