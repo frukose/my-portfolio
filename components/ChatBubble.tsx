@@ -12,7 +12,7 @@ export const ChatBubble: React.FC<ChatBubbleProps> = ({ dynamicProjects }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'model', text: `Hi there! I'm ${MY_PORTFOLIO_DATA.name.split(' ')[0]}'s Digital Twin. How can I help you learn about my journey at Aptech Learning today?`, timestamp: new Date() }
+    { role: 'model', text: `Hi there! I'm ${MY_PORTFOLIO_DATA.name.split(' ')[0]}'s Digital Twin, powered by Gemini 3. How can I help you learn about my journey at Aptech Learning today?`, timestamp: new Date() }
   ]);
   const [isLoading, setIsLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -53,7 +53,10 @@ export const ChatBubble: React.FC<ChatBubbleProps> = ({ dynamicProjects }) => {
               </div>
               <div>
                 <h3 className="font-bold">Digital Twin</h3>
-                <p className="text-xs text-indigo-100">Always Online</p>
+                <div className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span>
+                  <p className="text-[10px] text-indigo-100 font-bold uppercase tracking-wider">Powered by Gemini 3</p>
+                </div>
               </div>
             </div>
             <button onClick={() => setIsOpen(false)} className="hover:text-gray-200">
@@ -66,7 +69,7 @@ export const ChatBubble: React.FC<ChatBubbleProps> = ({ dynamicProjects }) => {
               <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div className={`max-w-[85%] rounded-2xl px-4 py-2 text-sm ${
                   m.role === 'user' 
-                    ? 'bg-indigo-600 text-white rounded-tr-none' 
+                    ? 'bg-indigo-600 text-white rounded-tr-none shadow-md' 
                     : 'bg-white text-gray-800 border border-gray-200 rounded-tl-none shadow-sm'
                 }`}>
                   {m.text}
@@ -77,9 +80,9 @@ export const ChatBubble: React.FC<ChatBubbleProps> = ({ dynamicProjects }) => {
               <div className="flex justify-start">
                 <div className="bg-white border border-gray-200 rounded-2xl rounded-tl-none px-4 py-2 shadow-sm">
                   <div className="flex gap-1">
-                    <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce"></div>
-                    <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce delay-75"></div>
-                    <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce delay-150"></div>
+                    <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-bounce"></div>
+                    <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-bounce delay-75"></div>
+                    <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-bounce delay-150"></div>
                   </div>
                 </div>
               </div>
@@ -93,13 +96,13 @@ export const ChatBubble: React.FC<ChatBubbleProps> = ({ dynamicProjects }) => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-                placeholder="Ask me about my experience..."
-                className="flex-1 bg-gray-100 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                placeholder="Ask me about my journey..."
+                className="flex-1 bg-gray-100 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all"
               />
               <button 
                 onClick={handleSend}
                 disabled={isLoading}
-                className="bg-indigo-600 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-indigo-700 transition-colors disabled:opacity-50"
+                className="bg-indigo-600 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-indigo-700 transition-colors disabled:opacity-50 shadow-md shadow-indigo-100"
               >
                 <i className="fas fa-paper-plane"></i>
               </button>
@@ -110,9 +113,9 @@ export const ChatBubble: React.FC<ChatBubbleProps> = ({ dynamicProjects }) => {
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-indigo-600 text-white w-16 h-16 rounded-full shadow-lg hover:bg-indigo-700 transition-all flex items-center justify-center group"
+        className="bg-indigo-600 text-white w-16 h-16 rounded-full shadow-lg hover:bg-indigo-700 hover:scale-105 active:scale-95 transition-all flex items-center justify-center group"
       >
-        <i className={`fas ${isOpen ? 'fa-comment-slash' : 'fa-comment-dots'} text-2xl group-hover:scale-110 transition-transform`}></i>
+        <i className={`fas ${isOpen ? 'fa-comment-slash' : 'fa-comment-dots'} text-2xl transition-transform`}></i>
       </button>
     </div>
   );

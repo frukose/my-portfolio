@@ -1,11 +1,18 @@
 
 import { PortfolioData } from './types';
 
-export const MY_PORTFOLIO_DATA: PortfolioData = {
+export interface ExtendedPortfolioData extends PortfolioData {
+  phone: string;
+  whatsapp: string;
+}
+
+export const MY_PORTFOLIO_DATA: ExtendedPortfolioData = {
   name: "Olorunishola Farouk",
   profession: "Full Stack Development Student",
   email: "faroukayomide33@gmail.com",
-  bio: "I am a dedicated student at Aptech Learning Lagos, Nigeria, specializing in modern web technologies and software engineering. I am passionate about building functional and beautiful digital solutions, leveraging a strong foundation in both frontend and backend development.",
+  phone: "07030195046",
+  whatsapp: "07030195046",
+  bio: "I am a dedicated student at Aptech Learning Lagos, Nigeria, specializing in modern web technologies and software engineering. I am passionate about building functional and beautiful digital solutions, leveraging a strong foundation in both frontend and backend development. You can reach me directly via email or at my contact number: 07030195046.",
   skills: [
     { category: "Frontend", items: ["HTML", "CSS", "JavaScript", "TypeScript", "React.js"] },
     { category: "Backend & Core", items: ["Java", "SQL", "Node.js"] },

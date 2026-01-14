@@ -273,6 +273,17 @@ const App: React.FC = () => {
                 <a href={`mailto:${MY_PORTFOLIO_DATA.email}`} className="text-2xl md:text-3xl font-black hover:text-indigo-300 transition-colors break-all">{MY_PORTFOLIO_DATA.email}</a>
               </div>
             </div>
+            
+            <div className="flex items-center gap-8 group">
+              <div className="w-20 h-20 bg-white/5 rounded-3xl flex items-center justify-center border border-white/10 group-hover:bg-emerald-600 group-hover:border-emerald-500 transition-all">
+                <i className="fab fa-whatsapp text-3xl text-emerald-400 group-hover:text-white"></i>
+              </div>
+              <div>
+                <p className="text-emerald-400 text-xs font-black uppercase tracking-widest mb-1">WhatsApp & Call</p>
+                <a href="https://wa.me/2347030195046" target="_blank" className="text-2xl md:text-3xl font-black hover:text-emerald-300 transition-colors">07030195046</a>
+              </div>
+            </div>
+
             <div className="flex gap-6 pt-10">
               <a href="https://github.com/frukose" target="_blank" className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-white hover:text-gray-900 transition-all border border-white/10"><i className="fab fa-github text-3xl"></i></a>
               <a href="https://github.com/farouk908" target="_blank" className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-white hover:text-gray-900 transition-all border border-white/10"><i className="fab fa-github text-3xl"></i></a>
@@ -415,7 +426,8 @@ const App: React.FC = () => {
       <footer className="py-20 border-t border-gray-100 text-center bg-white">
         <div className="max-w-7xl mx-auto px-8 flex flex-col md:flex-row items-center justify-between gap-8">
           <p className="text-gray-400 font-black text-xs uppercase tracking-[0.3em]">&copy; {new Date().getFullYear()} Olorunishola Farouk</p>
-          <div className="flex gap-10">
+          <div className="flex flex-wrap gap-10 justify-center">
+            <a href="https://wa.me/2347030195046" target="_blank" className="text-gray-400 hover:text-emerald-600 transition-colors font-black text-xs uppercase tracking-widest flex items-center gap-2"><i className="fab fa-whatsapp"></i> WhatsApp</a>
             <a href="https://github.com/frukose" className="text-gray-400 hover:text-indigo-600 transition-colors font-black text-xs uppercase tracking-widest">GitHub One</a>
             <a href="https://github.com/farouk908" className="text-gray-400 hover:text-indigo-600 transition-colors font-black text-xs uppercase tracking-widest">GitHub Two</a>
             <a href="https://www.linkedin.com/in/farouk-olorunishola-545a20356" target="_blank" className="text-gray-400 hover:text-indigo-600 transition-colors font-black text-xs uppercase tracking-widest">LinkedIn</a>
