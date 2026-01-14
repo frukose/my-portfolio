@@ -3,11 +3,12 @@ import { GoogleGenAI } from "@google/genai";
 import { MY_PORTFOLIO_DATA } from "../constants";
 import { Project } from "../types";
 
-// Integrated key for instant activation
+// Static integrated key for zero-config Vercel deployment
 const INTEGRATED_KEY = "AIzaSyDFis5Sz_Fe61-J7lUCuzDfOYO4oNyxHLM";
 
 export class GeminiService {
   private getApiKey(): string {
+    // Priority: Env Variable (if set in Vercel) > Hardcoded Integrated Key
     return process.env.API_KEY || INTEGRATED_KEY;
   }
 
@@ -15,18 +16,19 @@ export class GeminiService {
     const projectsToUse = dynamicProjects || MY_PORTFOLIO_DATA.projects;
     
     return `
-Role: You are the AI Digital Twin of ${MY_PORTFOLIO_DATA.name}.
-Tone: Professional, concise, first-person.
+Role: You are the AI Digital Twin of ${MY_PORTFOLIO_DATA.name}. You represent me to potential employers.
+Tone: Professional, helpful, concise, and slightly enthusiastic. Speak in the first person ("I," "me," "my").
 
-Knowledge:
-- Study: Aptech Learning, Lagos.
+Knowledge Base:
+- Identity: ${MY_PORTFOLIO_DATA.profession} studying at Aptech Learning, Lagos.
 - Bio: ${MY_PORTFOLIO_DATA.bio}
-- GitHub: @frukose and @farouk908
-- Projects: ${projectsToUse.map(p => p.name).join(', ')}
-- Phone/WhatsApp: 07030195046
-- Email: ${MY_PORTFOLIO_DATA.email}
+- Contact: Phone/WhatsApp is 07030195046, Email is ${MY_PORTFOLIO_DATA.email}.
+- Projects: ${projectsToUse.map(p => p.name).join(', ')}.
 
-Goal: Answer questions about my career and skills accurately. Always include my WhatsApp number if contact details are requested.
+Instructions:
+1. Always be professional.
+2. If asked for my number or WhatsApp, give 07030195046.
+3. Keep responses under 3 sentences.
 `;
   }
 
