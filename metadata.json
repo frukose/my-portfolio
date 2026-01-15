@@ -1,5 +1,5 @@
 {
-  "name": "AI Portfolio Digital Twin",
-  "description": "An interactive portfolio application featuring an AI digital twin that answers questions about the owner's skills, projects, and professional background using the Gemini API.",
+  "name": "Professional Portfolio",
+  "description": "An interactive portfolio application featuring projects, skills, and professional background of Olorunishola Farouk.",
   "requestFramePermissions": []
 }

@@ -1,6 +1,5 @@
 
 import { MY_PORTFOLIO_DATA } from './constants';
-import { ChatBubble } from './components/ChatBubble';
 import { Project } from './types';
 import React, { useState, useEffect } from 'react';
 
@@ -252,8 +251,6 @@ const App: React.FC = () => {
           </div>
         </div>
       )}
-
-      <ChatBubble dynamicProjects={projects} />
 
       <footer className="py-20 border-t border-gray-100 text-center bg-white">
         <p className="text-gray-400 font-black text-xs uppercase tracking-[0.3em]">&copy; {new Date().getFullYear()} Olorunishola Farouk</p>
