@@ -1,17 +1,8 @@
-
 import { GoogleGenAI } from "@google/genai";
 import { MY_PORTFOLIO_DATA } from "../constants";
 import { Project } from "../types";
 
-// Static integrated key for zero-config Vercel deployment
-const INTEGRATED_KEY = "AIzaSyDFis5Sz_Fe61-J7lUCuzDfOYO4oNyxHLM";
-
 export class GeminiService {
-  private getApiKey(): string {
-    // Priority: Env Variable (if set in Vercel) > Hardcoded Integrated Key
-    return process.env.API_KEY || INTEGRATED_KEY;
-  }
-
   private getSystemInstruction(dynamicProjects?: Project[]) {
     const projectsToUse = dynamicProjects || MY_PORTFOLIO_DATA.projects;
     
@@ -33,10 +24,11 @@ Instructions:
   }
 
   async chat(message: string, history: { role: 'user' | 'model'; parts: { text: string }[] }[] = [], dynamicProjects?: Project[]) {
-    const apiKey = this.getApiKey();
-    const ai = new GoogleGenAI({ apiKey });
+    // Guidelines: Use process.env.API_KEY directly and initialize with named parameter
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || "" });
     
     try {
+      // Guidelines: Use ai.models.generateContent with correct model name
       const response = await ai.models.generateContent({
         model: 'gemini-3-flash-preview',
         contents: [
@@ -49,6 +41,7 @@ Instructions:
         },
       });
 
+      // Guidelines: Access response.text as a property, not a method
       return response.text || "I'm sorry, I couldn't process that.";
     } catch (error) {
       console.error("Gemini API Error:", error);

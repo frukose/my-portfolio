@@ -1,4 +1,3 @@
-
 export interface Project {
   id: string;
   name: string;
@@ -16,6 +15,9 @@ export interface Skill {
   items: string[];
 }
 
+/**
+ * Message interface for chat functionality
+ */
 export interface Message {
   role: 'user' | 'model';
   text: string;

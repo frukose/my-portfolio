@@ -1,4 +1,3 @@
-
 import { PortfolioData } from './types';
 
 export interface ExtendedPortfolioData extends PortfolioData {
@@ -43,13 +42,13 @@ export const MY_PORTFOLIO_DATA: ExtendedPortfolioData = {
     },
     {
       id: "3",
-      name: "React Portfolio AI Twin",
-      description: "An advanced portfolio featuring an AI-powered Digital Twin using the Gemini API.",
-      longDescription: "This project showcases my ability to integrate LLMs into modern web applications. Built with React and TypeScript, it allows visitors to converse with an AI trained on my professional background.",
-      problemSolved: "Eliminates the 'static' nature of traditional portfolios by providing real-time answers to recruiter questions about my code and experience.",
-      techStack: ["React.js", "TypeScript", "Tailwind CSS", "Gemini API"],
+      name: "Modern Web Portfolio",
+      description: "A high-performance portfolio website built with React and TypeScript.",
+      longDescription: "This project showcases my ability to build fast, responsive, and visually appealing web interfaces. It features smooth navigation, dynamic project fetching from GitHub, and a polished UI using Tailwind CSS.",
+      problemSolved: "Created a central professional hub that effectively communicates technical proficiency and project experience to potential clients and employers.",
+      techStack: ["React.js", "TypeScript", "Tailwind CSS"],
       imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200",
-      repoUrl: "https://github.com/frukose/portfolio-ai-twin",
+      repoUrl: "https://github.com/frukose/portfolio",
       liveDemoUrl: "#"
     },
     {
